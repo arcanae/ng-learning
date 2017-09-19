@@ -1,0 +1,21 @@
+<h1 (click)="methode()">{{title}}</h1>
+
+<p>~~ Hidden ~~</p>
+<input type="text" [(ngModel)]="title" [hidden]="inputShown">
+
+<button (click)="toggleInput()">Toggle</button>
+<input type="checkbox" [(ngModel)]="inputShown">
+
+<p>~~ Calc ~~</p>
+<input type="number" [(ngModel)]="a">
+<input type="number" [(ngModel)]="b"> {{a+b}}
+
+<p>~~ Form ~~</p>
+
+<input placeholder="lastname" type="text" [(ngModel)]="person.lastname">
+<input placeholder="firstname" type="text" [(ngModel)]="person.firstname">
+<input placeholder="age" type="number" [(ngModel)]="person.age">
+<input type="checkbox" [(ngModel)]="inputShown2">
+<input placeholder="dogname" type="text" [(ngModel)]="person.dogname" [hidden]="inputShown2">
+<input placeholder="dograce" type="text" [(ngModel)]="person.dograce" [hidden]="inputShown2">
+<button (click)="display()">Send</button>
