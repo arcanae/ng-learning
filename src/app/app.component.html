@@ -1,1 +1,6 @@
-<app-template></app-template>
+<select [(ngModel)]="selectedPage">
+    <option value="template">Template</option>
+    <option value="boucle">Boucle</option>
+</select>
+<app-template *ngIf="selectedPage === 'template'"></app-template>
+<app-boucle *ngIf="selectedPage === 'boucle'"></app-boucle>

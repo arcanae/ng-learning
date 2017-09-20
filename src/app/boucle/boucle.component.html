@@ -1,0 +1,7 @@
+<p>~~ Boucle ~~</p>
+<ng-container *ngFor="let item of array; index as key; even as pair">
+    <p *ngIf="pair">
+        {{key}} {{item}}
+    </p>
+
+</ng-container>
