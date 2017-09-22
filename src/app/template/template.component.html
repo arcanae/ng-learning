@@ -1,21 +1,41 @@
-<h1 (click)="methode()">{{title}}</h1>
+<h1 (click)="methode()">
+    {{title}}</h1>
 
-<p>~~ Hidden ~~</p>
 <input type="text" [(ngModel)]="title" [hidden]="inputShown">
 
 <button (click)="toggleInput()">Toggle</button>
 <input type="checkbox" [(ngModel)]="inputShown">
 
-<p>~~ Calc ~~</p>
+
 <input type="number" [(ngModel)]="a">
 <input type="number" [(ngModel)]="b"> {{a+b}}
 
-<p>~~ Form ~~</p>
+<p>
+    <label>Nom :</label>
+    <input type="text" [(ngModel)]="personne.nom">
+</p>
+<p>
+    <label>Prénom :</label>
+    <input type="text" [(ngModel)]="personne.prenom">
+</p>
+<p>
+    <label>Age :</label>
+    <input type="number" [(ngModel)]="personne.age">
+</p>
+<label>J'ai un chien</label>
+<input type="checkbox" [(ngModel)]="chienForm">
 
-<input placeholder="lastname" type="text" [(ngModel)]="person.lastname">
-<input placeholder="firstname" type="text" [(ngModel)]="person.firstname">
-<input placeholder="age" type="number" [(ngModel)]="person.age">
-<input type="checkbox" [(ngModel)]="inputShown2">
-<input placeholder="dogname" type="text" [(ngModel)]="person.dogname" [hidden]="inputShown2">
-<input placeholder="dograce" type="text" [(ngModel)]="person.dograce" [hidden]="inputShown2">
-<button (click)="display()">Send</button>
+<section [hidden]="!chienForm">
+    <p>
+        <label>Nom du Chien :</label>
+        <input type="text" [(ngModel)]="personne.chien.nom">
+    </p>
+    <p>
+        <label>Race du Chien :</label>
+        <input type="text" [(ngModel)]="personne.chien.race">
+    </p>
+</section>
+<button (click)="afficher()">Afficher</button>
+
+
+<app-boucle></app-boucle>

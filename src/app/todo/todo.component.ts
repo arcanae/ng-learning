@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {TodoService} from '../shared/todo.service';
 
-
+import { TodoAjaxService } from '../shared/todo-ajax.service';
+import { Todo } from '../shared/todo';
 
 @Component({
   selector: 'app-todo',
@@ -9,21 +9,24 @@ import {TodoService} from '../shared/todo.service';
   styleUrls: ['./todo.component.css']
 })
 export class TodoComponent implements OnInit {
-  list:string[];
+  liste:Todo[];
   newTodo:string;
-
-  constructor(private todoService:TodoService) { }
+  constructor(private todoService:TodoAjaxService) { 
+  }
 
   ngOnInit() {
-    this.list = this.todoService.getTodos();
+    this.todoService.getAllTodo().then((todos) => this.liste = todos);
   }
 
   addTodo() {
-    this.todoService.add(this.newTodo);
+    this.todoService.addTodo({message:this.newTodo})
+    .then((todo) => this.liste.push(todo));
   }
 
   removeTodo(index:number) {
-    this.todoService.remove(index);
+    this.todoService.removeTodo({id:index, message:''})
+    .then(() => this.liste = this.liste.filter((todo) => todo.id !== index));
+    
   }
 
 }

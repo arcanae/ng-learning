@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompteurService } from '../shared/compteur/compteur.service';
 
 @Component({
   selector: 'app-boucle',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./boucle.component.css']
 })
 export class BoucleComponent implements OnInit {
-  array:string[] = ["arf","gu","ze","aze"];
+  tableau:string[] = ['ga', 'zo', 'bu', 'meu'];
 
-  constructor() { }
+  constructor(private cs:CompteurService) { }
 
   ngOnInit() {
+    console.log('compte initial dans boucle : ' +this.cs.compte);
+    this.cs.increment();
+    console.log('compte final dans boucle : ' +this.cs.compte);
   }
 
 }
