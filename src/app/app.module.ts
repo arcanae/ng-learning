@@ -14,6 +14,10 @@ import { CompteurService } from './shared/compteur/compteur.service';
 import { TodoAjaxService } from './shared/todo-ajax.service';
 import { ListeChienComponent } from './liste-chien/liste-chien.component';
 import { ChienService } from './shared/chien/chien.service';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './app.routes';
+import { ErrorComponent } from './error/error.component';
+import { ChienComponent } from './chien/chien.component';
 
 @NgModule({
   declarations: [
@@ -22,12 +26,15 @@ import { ChienService } from './shared/chien/chien.service';
     BoucleComponent,
     TodoComponent,
     TodoSecondComponent,
-    ListeChienComponent
+    ListeChienComponent,
+    ErrorComponent,
+    ChienComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [
     TodoService,

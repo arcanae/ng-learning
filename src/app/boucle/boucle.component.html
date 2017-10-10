@@ -1,7 +1,6 @@
-<p>~~ Boucle ~~</p>
-<ng-container *ngFor="let item of array; index as key; even as pair">
+<ng-container *ngFor="let item of tableau; index as clef; even as pair">
     <p *ngIf="pair">
-        {{key}} {{item}}
+        {{clef}} {{item}}
     </p>
 
 </ng-container>
