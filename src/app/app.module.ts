@@ -18,6 +18,8 @@ import { RouterModule } from '@angular/router';
 import { appRoutes } from './app.routes';
 import { ErrorComponent } from './error/error.component';
 import { ChienComponent } from './chien/chien.component';
+import { AjoutChienComponent } from './liste-chien/ajout-chien/ajout-chien.component';
+import { ModifChienComponent } from './liste-chien/modif-chien/modif-chien.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +30,9 @@ import { ChienComponent } from './chien/chien.component';
     TodoSecondComponent,
     ListeChienComponent,
     ErrorComponent,
-    ChienComponent
+    ChienComponent,
+    AjoutChienComponent,
+    ModifChienComponent
   ],
   imports: [
     BrowserModule,
